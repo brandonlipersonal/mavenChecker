@@ -15,20 +15,21 @@
 # - RTC: cd to the main directory, make a directory for application
 # - RTC: They zip all of their .yaml files, dockerfile, .jar into a .zip (fbp.notif-app-package.zip)
 #
- 
+
+# Code Starts -----------------------------------------------------
  
 # Look for non-binary files and notify user to delete or update
-# Look for all files in the current directory (filepath can be changed)
-# fileNames='./*/*'
-# for eachfile in $fileNames
+
+# firstLevel='./*'
+# secondLevel='./*/*'
+# thirdLevel='./*/*/*'
+# for eachfile in $firstLevel $secondLevel $thirdLevel
 # do
-#     echo $eachfile
 #     if [[ -s $eachfile ]];              # -s returns true if file exists and has a size greater than 0
 #     then
-#         echo "This is a binary file"
+#         echo "$eachfile This is a binary file"
 #     else
-#         echo "This is a non-binary file"
-#         rm -i $eachfile                # -i to provide prompt before deleting the file
+#         echo "$eachfile This is a non-binary file"
 #     fi
 # done
 
@@ -36,40 +37,43 @@
 # Check to see if standard files exist
 # echo "----- Now checking if file is named correctly and exists -----"
  
-# if [[ -f "maven-project/deploy.sh" ]]
+# if [[ -f maven-project/deploy.sh ]]
 # then
-#     echo "deploy.sh exists"
+#     if [[ -s maven-project/deploy.sh ]]
+#     then
+#         echo "deploy.sh exists and not empty"
+#     else
+#         echo "deploy.sh exists but empty"
+#     fi
 # else
-#     echo "File is incorrect"
+#     echo "deploy.sh does not exist"
 # fi
 
-# if [[ -f "maven-project/build.xml" ]]
+# if [[ -f maven-project/build.xml ]]
 # then
-#     echo "build.xml exists"
+#     if [[ -s maven-project/build.xml ]]
+#     then
+#         echo "build.xml exists and not empty"
+#     else
+#         echo "build.xml exists but empty"
+#     fi
 # else
-#     echo "File is incorrect"
+#     echo "build.xml does not exist"
 # fi
 
-# if [[ -f "maven-project/pom.xmls" ]]
+# if [[ -f maven-project/pom.xml ]]
 # then
-#     echo "pom.xml exists"
+#     if [[ -s maven-project/pom.xml ]]
+#     then
+#         echo "pom.xml exists and not empty"
+#     else
+#         echo "pom.xml exists but empty"
+#     fi
 # else
-#     echo "File is incorrect"
+#     echo "pom.xml does not exist"
 # fi
-
 
 # Testing if directories are empty
-
-
-if    ls -A1q ./maven-project/ | grep -q .
-then  ! echo maven-project is not empty
-else  echo maven-project is empty
-fi
-
-
-
-# OR
-
 # FILE=""
 # DIR="maven-project"
 # if [ -d "$DIR" ]
@@ -82,3 +86,6 @@ fi
 # else
 #     echo "Directory $DIR not found."
 # fi
+
+
+#------------------------------------
