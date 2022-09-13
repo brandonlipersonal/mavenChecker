@@ -32,14 +32,27 @@ do
     fi
 done
 
-# Check for Maven Standards
- 
+
+# Check to see if standard files exist
 echo "----- Now checking if file is named correctly and exists -----"
  
 if [[ -f "maven-project/deploy.sh" ]]
 then
     echo "deploy.sh exists"
 else
-    echo $eachfile
+    echo "File is incorrect"
+fi
+
+if [[ -f "maven-project/build.xml" ]]
+then
+    echo "build.xml exists"
+else
+    echo "File is incorrect"
+fi
+
+if [[ -f "maven-project/pom.xmls" ]]
+then
+    echo "pom.xml exists"
+else
     echo "File is incorrect"
 fi
