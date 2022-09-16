@@ -18,41 +18,72 @@
 # Code Starts -----------------------------------------------------
  
 # Look for non-binary files and binary files and displays them
-directoryPath="C:/Users/15712/Desktop/mavenChecker/mavenChecker"
-firstLevel='./*'
-secondLevel='./*/*'
-thirdLevel='./*/*/*'
-fourthLevel='./*/*/*/*'
-if [[ -d $directoryPath ]];                 # -d returns true if directory exists
+# directoryPath="C:/Users/15712/Desktop/mavenChecker/mavenChecker" #(Laptop)
+# directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" #(Desktop)
+
+shopt -s globstar                                       # set it so that pattern ** used in a filename expansion context will match all files and zero or more directories and subdirectories
+directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" 
+if [[ -d "$directoryPath" ]];                           # -d returns true if directory exists
 then
-    for eachfile in $firstLevel $secondLevel $thirdLevel $fourthLevel
+    for eachfile in */**/***                            # Loops through levels of subdirectories
     do
-        if [[ -s $eachfile ]];              # -s returns true if file exists and has a size greater than 0
+        if [[ -s "$eachfile" ]];                        # -s returns true if file exists and has a size greater than 0
         then
-            echo "$eachfile This is a binary file"
+            echo "$eachfile" "This is a binary file"
         else
-            echo "$eachfile This is a non-binary file"
+            if [[ -d "$eachfile" ]];                    # If it is non-binary, check to see if its a directory
+            then
+                echo ""$eachfile" is a directory"
+            else
+                echo ""$eachfile" is a non-binary file"
+            fi
         fi
     done
 else
-    echo "$directoryPath is incorrect"
+    echo ""$directoryPath" is incorrect"
+fi
+shopt -u globstar                                       # Unsets it
+
+
+# Check to see if standard files exist and named correctly
+echo "----- Now checking if file is named correctly and exists -----"
+
+AppScan="./maven-project/AppScan"
+if [ -d "$AppScan" ]
+then
+	if [ "$(ls -A $AppScan)" ]; then
+     echo "$AppScan is not empty"
+	else
+        echo "$AppScan is empty"
+	fi
+else
+	echo "Directory $AppScan not found."
 fi
 
+emptyDirectory="./maven-project/emptyDirectory"
+if [ -d "$emptyDirectory" ]
+then
+	if [ "$(ls -A $emptyDirectory)" ]; then
+     echo "$emptyDirectory is not empty"
+	else
+        echo "$emptyDirectory is empty"
+	fi
+else
+	echo "Directory $emptyDirectory not found."
+fi
 
-# Check to see if standard files exist
-# echo "----- Now checking if file is named correctly and exists -----"
- 
-# if [[ -f maven-project/deploy.sh ]]
-# then
-#     if [[ -s maven-project/deploy.sh ]]
-#     then
-#         echo "deploy.sh exists and not empty"
-#     else
-#         echo "deploy.sh exists but empty"
-#     fi
-# else
-#     echo "deploy.sh does not exist"
-# fi
+deploy="./maven-project/deploy.sh"
+if [[ -f $deploy ]]
+then
+    if [[ -s $deploy ]]
+    then
+        echo "$deploy exists and not empty"
+    else
+        echo "$deploy exists but empty"
+    fi
+else
+    echo "$deploy does not exist"
+fi
 
 # if [[ -f maven-project/build.xml ]]
 # then
@@ -79,7 +110,6 @@ fi
 # fi
 
 # ------------------------------------
-# find ./maven-project/ -exec file {} \; | grep text | cut -d: -f1 --- For finding all binary files
 # Issues
 # When running the above script, child folders within the root directory return as non-binary even if they are populated
 # Trying to find a way to show it is also binary if they have stuff inside
