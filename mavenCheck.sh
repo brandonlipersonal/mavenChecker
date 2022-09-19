@@ -21,6 +21,8 @@
 # directoryPath="C:/Users/15712/Desktop/mavenChecker/mavenChecker" #(Laptop)
 # directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" #(Desktop)
 
+# Append to array or log file if file doesnt exist
+
 shopt -s globstar                                       # set it so that pattern ** used in a filename expansion context will match all files and zero or more directories and subdirectories
 directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" 
 if [[ -d "$directoryPath" ]];                           # -d returns true if directory exists
@@ -48,6 +50,58 @@ shopt -u globstar                                       # Unsets it
 # Check to see if standard files exist and named correctly
 echo "----- Now checking if file is named correctly and exists -----"
 
+pomFile="./maven-project/pom.xml"
+if [[ -f $pomFile ]]
+then
+    if [[ -s $pomFile ]]
+    then
+        echo "$pomFile exists and not empty"
+    else
+        echo "$pomFile exists but empty"
+    fi
+else
+    echo "$pomFile does not exist"
+fi
+
+buildFile="./maven-project/build.xml"
+if [[ -f $buildFile ]]
+then
+    if [[ -s $buildFile ]]
+    then
+        echo "$buildFile exists and not empty"
+    else
+        echo "$buildFile exists but empty"
+    fi
+else
+    echo "$buildFile does not exist"
+fi
+
+elcArtifacts="./maven-project/elcArtifacts"
+if [[ -f $buildFile ]]
+then
+    if [[ -s $buildFile ]]
+    then
+        echo "$buildFile exists and not empty"
+    else
+        echo "$buildFile exists but empty"
+    fi
+else
+    echo "$buildFile does not exist"
+fi
+
+deployFile="./maven-project/deploy.sh"
+if [[ -f $deployFile ]]
+then
+    if [[ -s $deployFile ]]
+    then
+        echo "$deployFile exists and not empty"
+    else
+        echo "$deployFile exists but empty"
+    fi
+else
+    echo "$deployFile does not exist"
+fi
+
 AppScan="./maven-project/AppScan"
 if [ -d "$AppScan" ]
 then
@@ -60,6 +114,8 @@ else
 	echo "Directory $AppScan not found."
 fi
 
+
+
 emptyDirectory="./maven-project/emptyDirectory"
 if [ -d "$emptyDirectory" ]
 then
@@ -71,44 +127,6 @@ then
 else
 	echo "Directory $emptyDirectory not found."
 fi
-
-deploy="./maven-project/deploy.sh"
-if [[ -f $deploy ]]
-then
-    if [[ -s $deploy ]]
-    then
-        echo "$deploy exists and not empty"
-    else
-        echo "$deploy exists but empty"
-    fi
-else
-    echo "$deploy does not exist"
-fi
-
-# if [[ -f maven-project/build.xml ]]
-# then
-#     if [[ -s maven-project/build.xml ]]
-#     then
-#         echo "build.xml exists and not empty"
-#     else
-#         echo "build.xml exists but empty"
-#     fi
-# else
-#     echo "build.xml does not exist"
-# fi
-
-# if [[ -f maven-project/pom.xml ]]
-# then
-#     if [[ -s maven-project/pom.xml ]]
-#     then
-#         echo "pom.xml exists and not empty"
-#     else
-#         echo "pom.xml exists but empty"
-#     fi
-# else
-#     echo "pom.xml does not exist"
-# fi
-
 # ------------------------------------
 # Issues
 # When running the above script, child folders within the root directory return as non-binary even if they are populated
