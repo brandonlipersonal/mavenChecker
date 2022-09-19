@@ -35,7 +35,11 @@ then
         else
             if [[ -d "$eachfile" ]];                    # If it is non-binary, check to see if its a directory
             then
-                echo ""$eachfile" is a directory"
+                if [ "$(ls -A $eachfile)" ]; then                           # ls -A lists all (hidden) files starting with '.', will fail if no files are listed
+                    echo "$eachfile is a directory and not empty"
+                else
+                    echo "$eachfile is a directory and is empty"
+                fi
             else
                 echo ""$eachfile" is a non-binary file"
             fi
