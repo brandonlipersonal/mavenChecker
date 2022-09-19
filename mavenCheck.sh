@@ -144,6 +144,8 @@ else
     echo "$deployFile does not exist"
 fi
 
+
+
 AppScan="./maven-project/AppScan"
 if [ -d "$AppScan" ]
 then
