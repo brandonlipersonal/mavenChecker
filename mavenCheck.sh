@@ -51,7 +51,7 @@ shopt -u globstar                                       # Unsets it
 echo "----- Now checking if file is named correctly and exists -----"
 
 pomFile="./maven-project/pom.xml"
-if [[ -f $pomFile ]]
+if [[ -f $pomFile ]]                                                # -f  checks if the provided path exists and is a regular file
 then
     if [[ -s $pomFile ]]
     then
@@ -77,16 +77,54 @@ else
 fi
 
 elcArtifacts="./maven-project/elcArtifacts"
-if [[ -f $buildFile ]]
+if [[ -d $elcArtifacts ]]
 then
-    if [[ -s $buildFile ]]
+	if [ "$(ls -A $elcArtifacts)" ]; then                           # ls -A lists all (hidden) files starting with '.', will fail if no files are listed
+     echo "$elcArtifacts is not empty"
+	else
+        echo "$elcArtifacts is empty"
+	fi
+else
+	echo "Directory $elcArtifacts not found."
+fi
+
+readmeFile="./maven-project/README.txt"
+if [[ -f $readmeFile ]]
+then
+    if [[ -s $readmeFile ]]
     then
-        echo "$buildFile exists and not empty"
+        echo "$readmeFile exists and not empty"
     else
-        echo "$buildFile exists but empty"
+        echo "$readmeFile exists but empty"
     fi
 else
-    echo "$buildFile does not exist"
+    echo "$readmeFile does not exist"
+fi
+
+noticeFile="./maven-project/NOTICE.txt"
+if [[ -f $noticeFile ]]
+then
+    if [[ -s $noticeFile ]]
+    then
+        echo "$noticeFile exists and not empty"
+    else
+        echo "$noticeFile exists but empty"
+    fi
+else
+    echo "$noticeFile does not exist"
+fi
+
+licenseFile="./maven-project/LICENSE.txt"
+if [[ -f $licenseFile ]]
+then
+    if [[ -s $licenseFile ]]
+    then
+        echo "$licenseFile exists and not empty"
+    else
+        echo "$licenseFile exists but empty"
+    fi
+else
+    echo "$licenseFile does not exist"
 fi
 
 deployFile="./maven-project/deploy.sh"
