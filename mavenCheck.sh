@@ -144,21 +144,225 @@ else
     echo "$deployFile does not exist"
 fi
 
-
-
-AppScan="./maven-project/AppScan"
-if [ -d "$AppScan" ]
+srcFolder="./maven-project/src"
+if [ -d "$srcFolder" ]
 then
-	if [ "$(ls -A $AppScan)" ]; then
-     echo "$AppScan is not empty"
+	if [ "$(ls -A $srcFolder)" ]; then
+     echo "$srcFolder is not empty"
 	else
-        echo "$AppScan is empty"
+        echo "$srcFolder is empty"
 	fi
 else
-	echo "Directory $AppScan not found."
+	echo "Directory $srcFolder not found."
 fi
 
+mainFolder="./maven-project/src/main"
+if [ -d "$mainFolder" ]
+then
+	if [ "$(ls -A $mainFolder)" ]; then
+     echo "$mainFolder is not empty"
+	else
+        echo "$mainFolder is empty"
+	fi
+else
+	echo "Directory $mainFolder not found."
+fi
 
+mainJavaFolder="./maven-project/src/main/java"
+if [ -d "$mainJavaFolder" ]
+then
+	if [ "$(ls -A $mainJavaFolder)" ]; then
+     echo "$mainJavaFolder is not empty"
+	else
+        echo "$mainJavaFolder is empty"
+	fi
+else
+	echo "Directory $mainJavaFolder not found."
+fi
+
+mainFiltersFolder="./maven-project/src/main/filters"
+if [ -d "$mainFiltersFolder" ]
+then
+	if [ "$(ls -A $mainFiltersFolder)" ]; then
+     echo "$mainFiltersFolder is not empty"
+	else
+        echo "$mainFiltersFolder is empty"
+	fi
+else
+	echo "Directory $mainFiltersFolder not found."
+fi
+
+mainWebappFolder="./maven-project/src/main/webapp"
+if [ -d "$mainWebappFolder" ]
+then
+	if [ "$(ls -A $mainWebappFolder)" ]; then
+     echo "$mainWebappFolder is not empty"
+	else
+        echo "$mainWebappFolder is empty"
+	fi
+else
+	echo "Directory $mainWebappFolder not found."
+fi
+
+mainResourcesFolder="./maven-project/src/main/resources"
+if [ -d "$mainResourcesFolder" ]
+then
+	if [ "$(ls -A $mainResourcesFolder)" ]; then
+     echo "$mainResourcesFolder is not empty"
+	else
+        echo "$mainResourcesFolder is empty"
+	fi
+else
+	echo "Directory $mainResourcesFolder not found."
+fi
+
+testFolder="./maven-project/src/test"
+if [ -d "$testFolder" ]
+then
+	if [ "$(ls -A $testFolder)" ]; then
+     echo "$testFolder is not empty"
+	else
+        echo "$testFolder is empty"
+	fi
+else
+	echo "Directory $testFolder not found."
+fi
+
+testJavaFolder="./maven-project/src/test/java"
+if [ -d "$testJavaFolder" ]
+then
+	if [ "$(ls -A $testJavaFolder)" ]; then
+     echo "$testJavaFolder is not empty"
+	else
+        echo "$testJavaFolder is empty"
+	fi
+else
+	echo "Directory $testJavaFolder not found."
+fi
+
+testFiltersFolder="./maven-project/src/test/filters"
+if [ -d "$testFiltersFolder" ]
+then
+	if [ "$(ls -A $testFiltersFolder)" ]; then
+     echo "$testFiltersFolder is not empty"
+	else
+        echo "$testFiltersFolder is empty"
+	fi
+else
+	echo "Directory $testFiltersFolder not found."
+fi
+
+testResourcesFolder="./maven-project/src/test/resources"
+if [ -d "$testResourcesFolder" ]
+then
+	if [ "$(ls -A $testResourcesFolder)" ]; then
+     echo "$testResourcesFolder is not empty"
+	else
+        echo "$testResourcesFolder is empty"
+	fi
+else
+	echo "Directory $testResourcesFolder not found."
+fi
+
+deploymentFolder="./maven-project/deployment"
+if [ -d "$deploymentFolder" ]
+then
+	if [ "$(ls -A $deploymentFolder)" ]; then
+     echo "$deploymentFolder is not empty"
+	else
+        echo "$deploymentFolder is empty"
+	fi
+else
+	echo "Directory $deploymentFolder not found."
+fi
+
+deploymentScriptsFolder="./maven-project/deployment/scripts"
+if [ -d "$deploymentScriptsFolder" ]
+then
+	if [ "$(ls -A $deploymentScriptsFolder)" ]; then
+     echo "$deploymentScriptsFolder is not empty"
+	else
+        echo "$deploymentScriptsFolder is empty"
+	fi
+else
+	echo "Directory $deploymentScriptsFolder not found."
+fi
+
+deploymentPropertiesFolder="./maven-project/deployment/deployment.properties"
+if [[ -f $deploymentPropertiesFolder ]]
+then
+    if [[ -s $deploymentPropertiesFolder ]]
+    then
+        echo "$deploymentPropertiesFolder exists and not empty"
+    else
+        echo "$deploymentPropertiesFolder exists but empty"
+    fi
+else
+    echo "$deploymentPropertiesFolder does not exist"
+fi
+
+appscan="./maven-project/AppScan"
+if [ -d "$appscan" ]
+then
+	if [ "$(ls -A $appscan)" ]; then
+     echo "$appscan is not empty"
+	else
+        echo "$appscan is empty"
+	fi
+else
+	echo "Directory $appscan not found."
+fi
+
+appscanScript="./maven-project/AppScan/example.script"
+if [[ -f $appscanScript ]]
+then
+    if [[ -s $appscanScript ]]
+    then
+        echo "$appscanScript exists and not empty"
+    else
+        echo "$appscanScript exists but empty"
+    fi
+else
+    echo "$appscanScript does not exist"
+fi
+
+appscanPPF="./maven-project/AppScan/example.ppf"
+if [[ -f $appscanPPF ]]
+then
+    if [[ -s $appscanPPF ]]
+    then
+        echo "$appscanPPF exists and not empty"
+    else
+        echo "$appscanPPF exists but empty"
+    fi
+else
+    echo "$appscanPPF does not exist"
+fi
+
+appscanPAF="./maven-project/AppScan/example.paf"
+if [[ -f $appscanPAF ]]
+then
+    if [[ -s $appscanPAF ]]
+    then
+        echo "$appscanPAF exists and not empty"
+    else
+        echo "$appscanPAF exists but empty"
+    fi
+else
+    echo "$appscanPAF does not exist"
+fi
+
+target="./maven-project/target"
+if [ -d "$target" ]
+then
+	if [ "$(ls -A $target)" ]; then
+     echo "$target is not empty"
+	else
+        echo "$target is empty"
+	fi
+else
+	echo "Directory $target not found."
+fi
 
 emptyDirectory="./maven-project/emptyDirectory"
 if [ -d "$emptyDirectory" ]
@@ -172,6 +376,3 @@ else
 	echo "Directory $emptyDirectory not found."
 fi
 # ------------------------------------
-# Issues
-# When running the above script, child folders within the root directory return as non-binary even if they are populated
-# Trying to find a way to show it is also binary if they have stuff inside
