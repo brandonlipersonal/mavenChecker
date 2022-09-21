@@ -25,6 +25,7 @@
 
 shopt -s globstar                                       # set it so that pattern ** used in a filename expansion context will match all files and zero or more directories and subdirectories
 directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" 
+exec > "log.txt"
 if [[ -d "$directoryPath" ]];                           # -d returns true if directory exists
 then
     for eachfile in */**/***                            # Loops through levels of subdirectories
@@ -49,7 +50,6 @@ else
     echo ""$directoryPath" is incorrect"
 fi
 shopt -u globstar                                       # Unsets it
-
 
 # Check to see if standard files exist and named correctly
 echo "----- Now checking if file is named correctly and exists -----"
@@ -362,17 +362,5 @@ then
 	fi
 else
 	echo "Directory $target not found."
-fi
-
-emptyDirectory="./maven-project/emptyDirectory"
-if [ -d "$emptyDirectory" ]
-then
-	if [ "$(ls -A $emptyDirectory)" ]; then
-     echo "$emptyDirectory is not empty"
-	else
-        echo "$emptyDirectory is empty"
-	fi
-else
-	echo "Directory $emptyDirectory not found."
 fi
 # ------------------------------------

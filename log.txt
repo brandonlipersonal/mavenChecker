@@ -1,0 +1,57 @@
+maven-project/AppScan is a directory and not empty
+maven-project/AppScan/example.paf This is a binary file
+maven-project/AppScan/example.ppf This is a binary file
+maven-project/AppScan/example.script is a non-binary file
+maven-project/assembly is a directory and is empty
+maven-project/build.xml This is a binary file
+maven-project/deploy.sh This is a binary file
+maven-project/deployment is a directory and not empty
+maven-project/deployment/deployment.properties This is a binary file
+maven-project/deployment/scripts is a directory and is empty
+maven-project/elcArtifacts is a directory and is empty
+maven-project/emptydirectory is a directory and is empty
+maven-project/it is a directory and is empty
+maven-project/LICENSE.txt This is a binary file
+maven-project/NOTICE.txt is a non-binary file
+maven-project/pom.xml This is a binary file
+maven-project/README.txt This is a binary file
+maven-project/site is a directory and is empty
+maven-project/src is a directory and not empty
+maven-project/src/main is a directory and not empty
+maven-project/src/main/filters is a directory and is empty
+maven-project/src/main/java is a directory and not empty
+maven-project/src/main/java/example.java This is a binary file
+maven-project/src/main/resources is a directory and is empty
+maven-project/src/main/webapp is a directory and is empty
+maven-project/src/test is a directory and not empty
+maven-project/src/test/filters is a directory and is empty
+maven-project/src/test/java is a directory and not empty
+maven-project/src/test/java/example1.java This is a binary file
+maven-project/src/test/resources is a directory and is empty
+maven-project/target is a directory and is empty
+----- Now checking if file is named correctly and exists -----
+./maven-project/pom.xml exists and not empty
+./maven-project/build.xml exists and not empty
+./maven-project/elcArtifacts is empty
+./maven-project/README.txt exists and not empty
+./maven-project/NOTICE.txt exists but empty
+./maven-project/LICENSE.txt exists and not empty
+./maven-project/deploy.sh exists and not empty
+./maven-project/src is not empty
+./maven-project/src/main is not empty
+./maven-project/src/main/java is not empty
+./maven-project/src/main/filters is empty
+./maven-project/src/main/webapp is empty
+./maven-project/src/main/resources is empty
+./maven-project/src/test is not empty
+./maven-project/src/test/java is not empty
+./maven-project/src/test/filters is empty
+./maven-project/src/test/resources is empty
+./maven-project/deployment is not empty
+./maven-project/deployment/scripts is empty
+./maven-project/deployment/deployment.properties exists and not empty
+./maven-project/AppScan is not empty
+./maven-project/AppScan/example.script exists but empty
+./maven-project/AppScan/example.ppf exists and not empty
+./maven-project/AppScan/example.paf exists and not empty
+./maven-project/target is empty
