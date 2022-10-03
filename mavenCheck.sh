@@ -21,8 +21,7 @@
 
 # Code Starts -----------------------------------------------------
 
-# Append to array or log file if file doesnt exist
-
+# Listing ALL files located in maven-project folder
 shopt -s globstar                                       # set it so that pattern ** used in a filename expansion context will match all files and zero or more directories and subdirectories
 directoryPath="C:/Users/brand/OneDrive/Desktop/Jenkins/mavenChecker" 
 exec > "log.txt"
@@ -39,10 +38,10 @@ then
                 if [ "$(ls -A $eachfile)" ]; then                           # ls -A lists all (hidden) files starting with '.', will fail if no files are listed
                     echo "$eachfile is a directory and not empty"
                 else
-                    echo "$eachfile is a directory and is empty"
+                    echo "$eachfile is a directory and is empty (WARNING)"
                 fi
             else
-                echo ""$eachfile" is a non-binary file"
+                echo ""$eachfile" is a non-binary file (WARNING)"
             fi
         fi
     done
@@ -62,7 +61,7 @@ deployFile="./maven-project/deploy.sh"
 appscanScript="./maven-project/AppScan/example.script"
 appscanPPF="./maven-project/AppScan/example.ppf"
 appscanPAF="./maven-project/AppScan/example.paf"
-
+deploymentPropertiesFolder="./maven-project/deployment/deployment.properties"
 
 fileCheck () {
 if [[ -f $* ]]
@@ -78,6 +77,7 @@ else
 fi
 }
 
+# Calling function to check the filepath and binary/non-binary
 fileCheck $pomFile 
 fileCheck $buildFile
 fileCheck $readmeFile
@@ -87,7 +87,9 @@ fileCheck $deployFile
 fileCheck $appscanScript
 fileCheck $appscanPPF
 fileCheck $appscanPAF
+fileCheck $deploymentPropertiesFolder
 
+echo "----- Now checking if folder is named correctly and exists -----"
 
 srcFolder="./maven-project/src"
 elcArtifacts="./maven-project/elcArtifacts"
@@ -102,7 +104,6 @@ testFiltersFolder="./maven-project/src/test/filters"
 testResourcesFolder="./maven-project/src/test/resources"
 deploymentFolder="./maven-project/deployment"
 deploymentScriptsFolder="./maven-project/deployment/scripts"
-deploymentPropertiesFolder="./maven-project/deployment/deployment.properties"
 appscan="./maven-project/AppScan"
 target="./maven-project/target"
 
@@ -120,6 +121,7 @@ else
 fi
 }
 
+# Calling function to check if directory exists and has contents
 directoryCheck $srcFolder
 directoryCheck $elcArtifacts
 directoryCheck $mainFolder
@@ -133,11 +135,5 @@ directoryCheck $testFiltersFolder
 directoryCheck $testResourcesFolder
 directoryCheck $deploymentFolder
 directoryCheck $deploymentScriptsFolder
-directoryCheck $deploymentPropertiesFolder
 directoryCheck $appscan
 directoryCheck $target
-# ------------------------------------
-
-# files=($pomFile $target $appscanPAF)
-# echo ${files[*]}
-

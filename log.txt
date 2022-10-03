@@ -1,34 +1,34 @@
 maven-project/AppScan is a directory and not empty
 maven-project/AppScan/example.paf This is a binary file
 maven-project/AppScan/example.ppf This is a binary file
-maven-project/AppScan/example.script is a non-binary file
-maven-project/assembly is a directory and is empty
+maven-project/AppScan/example.script is a non-binary file (WARNING)
+maven-project/assembly is a directory and is empty (WARNING)
 maven-project/build.xml This is a binary file
 maven-project/deploy.sh This is a binary file
 maven-project/deployment is a directory and not empty
 maven-project/deployment/deployment.properties This is a binary file
-maven-project/deployment/scripts is a directory and is empty
-maven-project/elcArtifacts is a directory and is empty
-maven-project/emptydirectory is a directory and is empty
-maven-project/it is a directory and is empty
+maven-project/deployment/scripts is a directory and is empty (WARNING)
+maven-project/elcArtifacts is a directory and is empty (WARNING)
+maven-project/emptydirectory is a directory and is empty (WARNING)
+maven-project/it is a directory and is empty (WARNING)
 maven-project/LICENSE.txt This is a binary file
-maven-project/NOTICE.txt is a non-binary file
+maven-project/NOTICE.txt is a non-binary file (WARNING)
 maven-project/pom.xml This is a binary file
 maven-project/README.txt This is a binary file
-maven-project/site is a directory and is empty
+maven-project/site is a directory and is empty (WARNING)
 maven-project/src is a directory and not empty
 maven-project/src/main is a directory and not empty
-maven-project/src/main/filters is a directory and is empty
+maven-project/src/main/filters is a directory and is empty (WARNING)
 maven-project/src/main/java is a directory and not empty
 maven-project/src/main/java/example.java This is a binary file
-maven-project/src/main/resources is a directory and is empty
-maven-project/src/main/webapp is a directory and is empty
+maven-project/src/main/resources is a directory and is empty (WARNING)
+maven-project/src/main/webapp is a directory and is empty (WARNING)
 maven-project/src/test is a directory and not empty
-maven-project/src/test/filters is a directory and is empty
+maven-project/src/test/filters is a directory and is empty (WARNING)
 maven-project/src/test/java is a directory and not empty
 maven-project/src/test/java/example1.java This is a binary file
-maven-project/src/test/resources is a directory and is empty
-maven-project/target is a directory and is empty
+maven-project/src/test/resources is a directory and is empty (WARNING)
+maven-project/target is a directory and is empty (WARNING)
 ----- Now checking if file is named correctly and exists -----
 ./maven-project/pom.xml path is correct and is a binary file
 ./maven-project/build.xml path is correct and is a binary file
@@ -39,6 +39,8 @@ maven-project/target is a directory and is empty
 ./maven-project/AppScan/example.script is a non-binary file (WARNING)
 ./maven-project/AppScan/example.ppf path is correct and is a binary file
 ./maven-project/AppScan/example.paf path is correct and is a binary file
+./maven-project/deployment/deployment.properties path is correct and is a binary file
+----- Now checking if folder is named correctly and exists -----
 ./maven-project/src is a directory and not empty
 ./maven-project/elcArtifacts is directory and is empty (WARNING)
 ./maven-project/src/main is a directory and not empty
@@ -52,6 +54,5 @@ maven-project/target is a directory and is empty
 ./maven-project/src/test/resources is directory and is empty (WARNING)
 ./maven-project/deployment is a directory and not empty
 ./maven-project/deployment/scripts is directory and is empty (WARNING)
-./maven-project/deployment/deployment.properties is not a directory (ERROR)
 ./maven-project/AppScan is a directory and not empty
 ./maven-project/target is directory and is empty (WARNING)
